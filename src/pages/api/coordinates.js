@@ -4,7 +4,7 @@ const fetchCoordinates = async (req, res) => {
     try {
         const { data } = await axios.get(`${process.env.GEOCODING_URI}`, {
             params: {
-                q: "Peine",
+                q: req.query.city,
                 key: process.env.GEOCODING_API_KEY,
             },
         });

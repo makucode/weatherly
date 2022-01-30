@@ -1,10 +1,22 @@
-import React from "react";
-import styles from "../../styles/components/Home/LocationPicker.module.scss";
+import React, { useState } from "react";
 import HeartIcon from "../icons/HeartIcon";
+import SearchIcon from "../icons/SearchIcon";
+import styles from "../../styles/components/Home/LocationPicker.module.scss";
+import axios from "axios";
 
 const LocationPicker = () => {
-    const handleSubmit = (e) => {
+    const [location, setLocation] = useState("");
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        try {
+            const { data } = await axios.get("/api/coordinates", {
+                params: { city: location },
+            });
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     return (
@@ -23,13 +35,21 @@ const LocationPicker = () => {
                     <label htmlFor="location">
                         What location do you want forecasts for?
                     </label>
-                    <input
-                        id="location"
-                        name="location"
-                        type="text"
-                        placeholder="Enter your nearest city"
-                    />
+                    <div className={styles.LocationPickerInpputWrapper}>
+                        <input
+                            id="location"
+                            name="location"
+                            type="text"
+                            placeholder="Enter your nearest city"
+                            value={location}
+                            onChange={(e) => setLocation(e.target.value)}
+                        />
+                        <button type="submit">
+                            <SearchIcon />
+                        </button>
+                    </div>
                 </form>
+                <div className={styles.PlaceholderSmall}></div>
             </div>
         </section>
     );

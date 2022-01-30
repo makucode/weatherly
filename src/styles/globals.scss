@@ -14,7 +14,9 @@ $day-gradient: linear-gradient(
 );
 
 $dark: #1a1a1a;
+$offDark: #686868;
 $light: #e5e5e5;
+$lightTransparent: #e5e5e562;
 $mid: #d8d8d8;
 $red: indianred;
 
@@ -25,6 +27,7 @@ $radiusMain: 12px;
 // Shadows
 
 $text-shadow: 0px 5px 2px rgba(0, 0, 0, 0.15);
+$inset-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
 
 // Transitions & Easings
 
