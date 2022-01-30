@@ -6,8 +6,26 @@ $sans: "Outfit", sans-serif;
 
 // Colors
 
+$day-gradient-color: rgb(81, 164, 219);
+$day-gradient: linear-gradient(
+    166deg,
+    rgba(81, 164, 219, 1) 0%,
+    rgba(115, 186, 225, 1) 100%
+);
+
+$dark: #1a1a1a;
+$light: #e5e5e5;
+$mid: #d8d8d8;
+$red: indianred;
+
 // Borders
+
+$radiusMain: 12px;
 
 // Shadows
 
+$text-shadow: 0px 5px 2px rgba(0, 0, 0, 0.15);
+
 // Transitions & Easings
+
+$transNormal: all ease-in-out 0.15s;

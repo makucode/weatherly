@@ -1,0 +1,77 @@
+@import "../../globals";
+
+.LocationPicker {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LocationPickerWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+}
+
+.LocationPickerHeading {
+    position: fixed;
+    bottom: 2rem;
+
+    display: flex;
+    column-gap: 0.5rem;
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 500;
+    }
+}
+
+.LocationPickerSub {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+
+    font-weight: 400;
+
+    svg {
+        fill: $light;
+
+        transform: translateY(2px);
+
+        transition: $transNormal;
+    }
+
+    svg:hover {
+        fill: $red;
+    }
+}
+
+.LocationPickerForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.5rem;
+
+    label {
+        display: block;
+        font-size: 1.5rem;
+    }
+
+    input {
+        width: 100%;
+        box-sizing: border-box;
+
+        padding: 0.5rem 1rem;
+
+        background-color: $light;
+
+        font-size: 1rem;
+        text-align: center;
+
+        outline: none;
+        border: none;
+        border-radius: $radiusMain;
+    }
+}
