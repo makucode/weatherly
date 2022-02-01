@@ -17,7 +17,7 @@ $dark: #1a1a1a;
 $offDark: #686868;
 $light: #e5e5e5;
 $lightTransparent: #e5e5e562;
-$mid: #d8d8d8;
+$mid: #d6d6d6;
 $red: indianred;
 
 // Borders
@@ -32,3 +32,9 @@ $inset-shadow: inset 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
 // Transitions & Easings
 
 $transNormal: all ease-in-out 0.15s;
+
+// Breakpoints
+
+$br-l: 1280px;
+$br-m: 810px;
+$br-s: 540px;

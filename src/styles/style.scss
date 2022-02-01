@@ -21,6 +21,13 @@ body {
     scrollbar-width: none;
 }
 
+a {
+    color: $light;
+    text-decoration: none;
+
+    transition: $transNormal;
+}
+
 section {
     box-sizing: border-box;
     height: 100vh;

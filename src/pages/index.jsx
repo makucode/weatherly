@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import axios from "axios";
-import styles from "../styles/pages/Home.module.scss";
 import Overview from "../components/Home/Overview";
 import Forecast from "../components/Home/Forecast";
 import LocationPicker from "../components/Home/LocationPicker";
+import Credits from "../components/Home/Credits";
+import styles from "../styles/pages/Home.module.scss";
 
 const Home = () => {
     const [location, setLocation] = useState();
@@ -54,6 +55,8 @@ const Home = () => {
                     <LocationPicker />
                 )}
             </main>
+
+            <Credits />
         </div>
     );
 };

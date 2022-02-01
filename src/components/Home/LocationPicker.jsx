@@ -1,11 +1,16 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import HeartIcon from "../icons/HeartIcon";
 import SearchIcon from "../icons/SearchIcon";
+import { fadeIn, fadeInScale } from "../../assets/animations";
 import styles from "../../styles/components/Home/LocationPicker.module.scss";
-import axios from "axios";
 
 const LocationPicker = () => {
     const [location, setLocation] = useState("");
+
+    const animations = fadeIn;
+    const animationScale = fadeInScale;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,36 +26,68 @@ const LocationPicker = () => {
 
     return (
         <section className={styles.LocationPicker}>
-            <div className={styles.LocationPickerWrapper}>
-                <div className={styles.LocationPickerHeading}>
-                    <h1>weatherly</h1>
-                    <h2 className={styles.LocationPickerSub}>
-                        Forecasts, just for you <HeartIcon />
-                    </h2>
+            <AnimatePresence>
+                <div className={styles.LocationPickerWrapper}>
+                    <motion.div
+                        transition={{ duration: 0.5 }}
+                        initial="pageInitial"
+                        animate="pageAnimate"
+                        exit="pageExit"
+                        variants={animations}
+                    >
+                        <div className={styles.LocationPickerHeading}>
+                            <h1>weatherly</h1>
+                            <h2 className={styles.LocationPickerSub}>
+                                Forecasts, just for you <HeartIcon />
+                            </h2>
+                        </div>
+                    </motion.div>
+                    <motion.div
+                        transition={{ duration: 0.5, delay: 0.25 }}
+                        initial="pageInitial"
+                        animate="pageAnimate"
+                        exit="pageExit"
+                        variants={animations}
+                    >
+                        <form
+                            className={styles.LocationPickerForm}
+                            onSubmit={handleSubmit}
+                        >
+                            <label htmlFor="location">
+                                What location do you want forecasts for?
+                            </label>
+                            <motion.div
+                                transition={{ duration: 0.5, delay: 0.5 }}
+                                initial="pageInitial"
+                                animate="pageAnimate"
+                                exit="pageExit"
+                                variants={animationScale}
+                            >
+                                <div
+                                    className={
+                                        styles.LocationPickerInpputWrapper
+                                    }
+                                >
+                                    <input
+                                        id="location"
+                                        name="location"
+                                        type="text"
+                                        placeholder="Enter your nearest city"
+                                        value={location}
+                                        onChange={(e) =>
+                                            setLocation(e.target.value)
+                                        }
+                                    />
+                                    <button type="submit">
+                                        <SearchIcon />
+                                    </button>
+                                </div>
+                            </motion.div>
+                        </form>
+                    </motion.div>
+                    <div className={styles.PlaceholderSmall}></div>
                 </div>
-                <form
-                    className={styles.LocationPickerForm}
-                    onSubmit={handleSubmit}
-                >
-                    <label htmlFor="location">
-                        What location do you want forecasts for?
-                    </label>
-                    <div className={styles.LocationPickerInpputWrapper}>
-                        <input
-                            id="location"
-                            name="location"
-                            type="text"
-                            placeholder="Enter your nearest city"
-                            value={location}
-                            onChange={(e) => setLocation(e.target.value)}
-                        />
-                        <button type="submit">
-                            <SearchIcon />
-                        </button>
-                    </div>
-                </form>
-                <div className={styles.PlaceholderSmall}></div>
-            </div>
+            </AnimatePresence>
         </section>
     );
 };

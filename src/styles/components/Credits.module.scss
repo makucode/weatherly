@@ -1,0 +1,38 @@
+@import "../globals";
+
+.Credits {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: $mid;
+    font-size: 1.125rem;
+
+    a {
+        height: 20px;
+
+        color: $light;
+    }
+
+    .CreditsMakucode {
+    }
+
+    .CreditsMakucode:hover {
+    }
+
+    svg {
+        fill: $mid;
+
+        transition: $transNormal;
+    }
+
+    svg:hover {
+        fill: $light;
+    }
+}
