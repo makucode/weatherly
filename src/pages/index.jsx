@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import axios from "axios";
 import Overview from "../components/Home/Overview";
 import Forecast from "../components/Home/Forecast";
-import LocationPicker from "../components/Home/LocationPicker";
-import Credits from "../components/Home/Credits";
 import styles from "../styles/pages/Home.module.scss";
 
 const Home = () => {
     const [location, setLocation] = useState();
 
+    const router = useRouter();
+
     // Check if localStorage has Location
 
     useEffect(() => {
-        setLocation(localStorage.getItem("location") || null);
-    }, []);
+        const localStorageLoc = localStorage.getItem("location");
+        localStorageLoc || location
+            ? setLocation(localStorageLoc)
+            : router.push("/landing");
+    }, [location, router]);
 
     // Fetch Weather from NEXT.js API
 
@@ -52,11 +56,9 @@ const Home = () => {
                         <Forecast />
                     </>
                 ) : (
-                    <LocationPicker />
+                    <h1>LOADER...</h1>
                 )}
             </main>
-
-            <Credits />
         </div>
     );
 };

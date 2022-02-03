@@ -22,10 +22,16 @@ body {
 }
 
 a {
+    display: block;
+
     color: $light;
     text-decoration: none;
 
     transition: $transNormal;
+}
+
+li {
+    list-style: none;
 }
 
 section {

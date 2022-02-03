@@ -1,7 +1,12 @@
+import { AnimatePresence } from "framer-motion";
 import "../styles/style.scss";
 
-function myweather({ Component, pageProps }) {
-    return <Component {...pageProps} />;
-}
+const myweather = ({ Component, pageProps }) => {
+    return (
+        <AnimatePresence exitBeforeEnter>
+            <Component {...pageProps} />
+        </AnimatePresence>
+    );
+};
 
 export default myweather;

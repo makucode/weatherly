@@ -1,0 +1,59 @@
+@import "../../globals";
+
+.Picker {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.PickerBox {
+    display: flex;
+    flex-direction: column;
+
+    padding: 3rem 2rem;
+
+    background-color: $light;
+
+    font-size: 1.25rem;
+    color: $dark;
+
+    border-radius: $radiusMain;
+
+    box-shadow: $box-shadow;
+
+    li {
+        padding: 0.75rem 0;
+
+        border-bottom: 1px solid $mid;
+
+        cursor: pointer;
+
+        transition: $transNormal;
+    }
+
+    li:hover {
+        background-color: $offLight;
+    }
+}
+
+.PickerCity {
+    font-weight: 500;
+}
+
+.PickerAddress {
+    font-size: 1rem;
+    color: $offDark;
+    opacity: 0.8;
+}
+
+.NoBorder {
+    border: 0px !important;
+}
