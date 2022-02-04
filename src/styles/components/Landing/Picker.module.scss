@@ -18,7 +18,7 @@
     display: flex;
     flex-direction: column;
 
-    padding: 3rem 2rem;
+    padding: 1.5rem 2rem 3rem 2rem;
 
     background-color: $light;
 
@@ -28,7 +28,51 @@
     border-radius: $radiusMain;
 
     box-shadow: $box-shadow;
+}
 
+.PickerHeading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 1rem;
+
+    color: $offDark;
+
+    h1 {
+        font-weight: 600;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        column-gap: 0.25rem;
+
+        background-color: transparent;
+
+        opacity: 0.5;
+
+        font-size: 1rem;
+        color: $offDark;
+
+        border: none;
+
+        transition: $transNormal;
+
+        svg {
+            width: 14px;
+
+            transform: rotate(180deg);
+        }
+    }
+
+    button:hover {
+        opacity: 1;
+    }
+}
+
+.PickerItems {
     li {
         padding: 0.75rem 0;
 
@@ -41,6 +85,25 @@
 
     li:hover {
         background-color: $offLight;
+
+        svg {
+            color: $offDark;
+        }
+    }
+}
+
+.PickerItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 1.5rem;
+
+    svg {
+        padding-right: 0.25rem;
+
+        color: $mid;
+
+        transition: $transNormal;
     }
 }
 
@@ -51,7 +114,7 @@
 .PickerAddress {
     font-size: 1rem;
     color: $offDark;
-    opacity: 0.8;
+    opacity: 0.75;
 }
 
 .NoBorder {

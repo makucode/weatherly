@@ -16,9 +16,37 @@
 
 .WeatherTemp {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
     width: 234px;
+}
+
+.UnitSelector {
+    display: flex;
+    flex-direction: column;
+
+    transform: translateY(30px);
+}
+
+.WeatherTempUnit {
+    display: block;
+
+    align-self: flex-start;
+
+    transform: translateY(-8px);
+
+    font-size: 1.5rem;
+
+    opacity: 0.75;
+
+    cursor: pointer;
+}
+
+.UnitActive {
+    font-size: 3rem;
+    opacity: 1;
+
+    transform: translateY(0);
 }
 
 .WeatherSub {

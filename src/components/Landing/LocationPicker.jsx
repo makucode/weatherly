@@ -4,9 +4,10 @@ import axios from "axios";
 import { AnimatePresence, motion } from "framer-motion";
 import HeartIcon from "../icons/HeartIcon";
 import SearchIcon from "../icons/SearchIcon";
+import Picker from "./Picker";
+import Loader from "../Loader";
 import { fadeIn, fadeInScale } from "../../assets/animations";
 import styles from "../../styles/components/Landing/LocationPicker.module.scss";
-import Picker from "./Picker";
 
 const LocationPicker = () => {
     const [location, setLocation] = useState("");
@@ -23,8 +24,6 @@ const LocationPicker = () => {
             const { data } = await axios.get("/api/coordinates", {
                 params: { city: location },
             });
-
-            console.log(data.results);
 
             setLocations(data.results);
         } catch (error) {
@@ -56,6 +55,7 @@ const LocationPicker = () => {
                         </div>
                     </motion.div>
                     <motion.div
+                        key={locations}
                         transition={{ duration: 0.5, delay: 0.25 }}
                         initial="pageInitial"
                         animate="pageAnimate"
@@ -64,7 +64,10 @@ const LocationPicker = () => {
                     >
                         {!loading ? (
                             locations ? (
-                                <Picker locations={locations} />
+                                <Picker
+                                    locations={locations}
+                                    setLocations={setLocations}
+                                />
                             ) : (
                                 <form
                                     className={styles.LocationPickerForm}
@@ -106,7 +109,7 @@ const LocationPicker = () => {
                                 </form>
                             )
                         ) : (
-                            loading && <h1>LOADER</h1>
+                            loading && <Loader />
                         )}
                     </motion.div>
                     <div className={styles.PlaceholderSmall}></div>

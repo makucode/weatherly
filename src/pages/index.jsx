@@ -1,41 +1,40 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useContext, useEffect, useState } from "react";
 import Head from "next/head";
 import axios from "axios";
 import Overview from "../components/Home/Overview";
 import Forecast from "../components/Home/Forecast";
+import Loader from "../components/Loader";
 import styles from "../styles/pages/Home.module.scss";
+import { LocationContext } from "../contexts/locationContext";
+import { WeatherContext } from "../contexts/WeatherContext";
 
 const Home = () => {
-    const [location, setLocation] = useState();
-
-    const router = useRouter();
-
-    // Check if localStorage has Location
-
-    useEffect(() => {
-        const localStorageLoc = localStorage.getItem("location");
-        localStorageLoc || location
-            ? setLocation(localStorageLoc)
-            : router.push("/landing");
-    }, [location, router]);
+    const { location } = useContext(LocationContext);
+    const { weather, setWeather } = useContext(WeatherContext);
 
     // Fetch Weather from NEXT.js API
 
     useEffect(() => {
         const getWeather = async () => {
             try {
-                const res = await axios.get("/api/weather", {
-                    params: { lat: location.lat, long: location.long },
+                const { data } = await axios.get("/api/weather", {
+                    params: {
+                        lat: location.geometry.lat,
+                        lon: location.geometry.lng,
+                    },
                 });
 
-                console.log(res);
+                console.log("LOWL");
+
+                setWeather({ ...data, fetchedOn: Date.now() });
             } catch (error) {
                 console.log(error);
             }
         };
 
-        location && getWeather();
+        ((!weather && location) ||
+            (weather && Date.now() - weather.fetchedOn > 600000)) &&
+            getWeather();
     }, [location]);
 
     return (
@@ -56,7 +55,7 @@ const Home = () => {
                         <Forecast />
                     </>
                 ) : (
-                    <h1>LOADER...</h1>
+                    <Loader />
                 )}
             </main>
         </div>

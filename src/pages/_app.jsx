@@ -1,12 +1,15 @@
 import { AnimatePresence } from "framer-motion";
+import Provider from "../components/Provider";
 import "../styles/style.scss";
 
-const myweather = ({ Component, pageProps }) => {
+const weatherly = ({ Component, pageProps }) => {
     return (
-        <AnimatePresence exitBeforeEnter>
-            <Component {...pageProps} />
-        </AnimatePresence>
+        <Provider>
+            <AnimatePresence exitBeforeEnter>
+                <Component {...pageProps} />
+            </AnimatePresence>
+        </Provider>
     );
 };
 
-export default myweather;
+export default weatherly;

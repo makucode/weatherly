@@ -1,0 +1,17 @@
+@import "../globals";
+
+.Loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    color: $light;
+
+    svg {
+        width: 280px;
+
+        fill: $light !important;
+        stroke: $light !important;
+    }
+}
