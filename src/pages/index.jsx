@@ -1,41 +1,20 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import Head from "next/head";
-import axios from "axios";
 import Overview from "../components/Home/Overview";
 import Forecast from "../components/Home/Forecast";
 import Loader from "../components/Loader";
-import styles from "../styles/pages/Home.module.scss";
 import { LocationContext } from "../contexts/locationContext";
 import { WeatherContext } from "../contexts/WeatherContext";
+import styles from "../styles/pages/Home.module.scss";
 
 const Home = () => {
     const { location } = useContext(LocationContext);
-    const { weather, setWeather } = useContext(WeatherContext);
-
-    // Fetch Weather from NEXT.js API
+    const { weather, weatherLoading, fetchWeather } =
+        useContext(WeatherContext);
 
     useEffect(() => {
-        const getWeather = async () => {
-            try {
-                const { data } = await axios.get("/api/weather", {
-                    params: {
-                        lat: location.geometry.lat,
-                        lon: location.geometry.lng,
-                    },
-                });
-
-                console.log("LOWL");
-
-                setWeather({ ...data, fetchedOn: Date.now() });
-            } catch (error) {
-                console.log(error);
-            }
-        };
-
-        ((!weather && location) ||
-            (weather && Date.now() - weather.fetchedOn > 600000)) &&
-            getWeather();
-    }, [location]);
+        location && fetchWeather(location.geometry.lat, location.geometry.lng);
+    }, [fetchWeather, location]);
 
     return (
         <div className={styles.Home}>
@@ -49,13 +28,15 @@ const Home = () => {
             </Head>
 
             <main className={"Main " + styles.HomeMain}>
-                {location ? (
+                {location && (!weatherLoading || weather) ? (
                     <>
                         <Overview />
                         <Forecast />
                     </>
                 ) : (
-                    <Loader />
+                    <div className={styles.LoaderContainer}>
+                        <Loader />
+                    </div>
                 )}
             </main>
         </div>

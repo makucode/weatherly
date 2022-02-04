@@ -1,7 +1,7 @@
 export const fadeInUp = {
     pageInitial: {
         opacity: 0,
-        transform: "translateY(40px)",
+        transform: "translateY(20px)",
     },
     pageAnimate: {
         opacity: 1,
@@ -9,7 +9,7 @@ export const fadeInUp = {
     },
     pageExit: {
         opacity: 0,
-        transform: "translateY(40px)",
+        transform: "translateY(20px)",
     },
 };
 

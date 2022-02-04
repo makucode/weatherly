@@ -1,6 +1,6 @@
 import React from "react";
 
-const WindIcon = ({ windSpeed = 12 }) => {
+const WindIcon = ({ windSpeed }) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,7 @@ const WindIcon = ({ windSpeed = 12 }) => {
             >
                 <animate
                     attributeName="stroke-dashoffset"
-                    dur={windSpeed + "s"}
+                    dur={12 - windSpeed + 3 + "s"}
                     repeatCount="indefinite"
                     values="-57; 57"
                 />
@@ -35,7 +35,7 @@ const WindIcon = ({ windSpeed = 12 }) => {
                 <animate
                     attributeName="stroke-dashoffset"
                     begin="-1.5s"
-                    dur={windSpeed + "s"}
+                    dur={12 - windSpeed + 3 + "s"}
                     repeatCount="indefinite"
                     values="-39; 39"
                 />

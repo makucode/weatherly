@@ -1,0 +1,41 @@
+@import "../../globals";
+
+.UnitSelector {
+    position: relative;
+
+    z-index: 5;
+
+    transform: translateY(27px);
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+.UnitWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.WeatherTempUnit {
+    display: block;
+
+    order: 1;
+    align-self: flex-start;
+
+    transform: translateY(-12px);
+
+    font-size: 2rem;
+
+    opacity: 0.5;
+}
+
+.UnitActive {
+    order: 0;
+
+    font-size: 4rem;
+    opacity: 1;
+    text-shadow: $text-shadow;
+
+    transform: translateY(0);
+}

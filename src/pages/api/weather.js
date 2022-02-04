@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const fetchWeather = async (req, res) => {
-    console.log(req.query);
     try {
         const { data } = await axios.get(`${process.env.WEATHER_URI}onecall`, {
             params: {
