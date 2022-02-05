@@ -1,16 +1,24 @@
+import { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 import Provider from "../components/Provider";
 import { fadeInBlur } from "../assets/animations";
 import "../styles/style.scss";
+import { DayTimeContext } from "../contexts/DayTimeContext";
 
-const weatherly = ({ Component, pageProps }) => {
+const Content = ({ children }) => {
     const router = useRouter();
+    const { dayTime, getBackground } = useContext(DayTimeContext);
+    const [background, setBackground] = useState(getBackground());
+
+    useEffect(() => {
+        setBackground(getBackground());
+    }, [getBackground]);
 
     const animation = fadeInBlur;
 
     return (
-        <Provider>
+        <div className={background}>
             <AnimatePresence exitBeforeEnter>
                 <motion.div
                     key={router.asPath}
@@ -20,9 +28,19 @@ const weatherly = ({ Component, pageProps }) => {
                     exit="pageExit"
                     variants={animation}
                 >
-                    <Component {...pageProps} />
+                    {children}
                 </motion.div>
             </AnimatePresence>
+        </div>
+    );
+};
+
+const weatherly = ({ Component, pageProps }) => {
+    return (
+        <Provider>
+            <Content>
+                <Component {...pageProps} />
+            </Content>
         </Provider>
     );
 };

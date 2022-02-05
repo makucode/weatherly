@@ -11,9 +11,6 @@ html,
 body {
     box-sizing: border-box;
 
-    background-color: $day-gradient-color;
-    background: $day-gradient;
-    background-repeat: no-repeat;
     color: #e5e5e5;
 
     scroll-snap-type: y mandatory;
@@ -49,6 +46,30 @@ section {
 //
 
 .Main {
+}
+
+.BgMorning {
+    background-color: $morning-gradient-color;
+    background: $morning-gradient;
+    background-repeat: no-repeat;
+}
+
+.BgDay {
+    background-color: $day-gradient-color;
+    background: $day-gradient;
+    background-repeat: no-repeat;
+}
+
+.BgEvening {
+    background-color: $evening-gradient-color;
+    background: $evening-gradient;
+    background-repeat: no-repeat;
+}
+
+.BgNight {
+    background-color: $night-gradient-color;
+    background: $night-gradient;
+    background-repeat: no-repeat;
 }
 
 // Scrollbar

@@ -1,12 +1,15 @@
 import React from "react";
+import { DayTimeProvider } from "../contexts/DayTimeContext";
 import { LocationProvider } from "../contexts/locationContext";
 import { WeatherProvider } from "../contexts/WeatherContext";
 
 const Provider = ({ children }) => {
     return (
-        <LocationProvider>
-            <WeatherProvider>{children}</WeatherProvider>
-        </LocationProvider>
+        <DayTimeProvider>
+            <LocationProvider>
+                <WeatherProvider>{children}</WeatherProvider>
+            </LocationProvider>
+        </DayTimeProvider>
     );
 };
 
