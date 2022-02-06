@@ -1,8 +1,9 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Head from "next/head";
 import Overview from "../components/Home/Overview";
 import Forecast from "../components/Home/Forecast";
 import Loader from "../components/Loader";
+import useOnScreen from "../hooks/useOnScreen";
 import { LocationContext } from "../contexts/locationContext";
 import { WeatherContext } from "../contexts/WeatherContext";
 import styles from "../styles/pages/Home.module.scss";
@@ -15,7 +16,6 @@ const Home = () => {
     useEffect(() => {
         location && fetchWeather(location.geometry.lat, location.geometry.lng);
     }, [fetchWeather, location]);
-
     return (
         <div className={styles.Home}>
             <Head>

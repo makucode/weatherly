@@ -61,7 +61,7 @@ const Overview = () => {
                 <div className={styles.WeatherIcon}>
                     {weather && (
                         <Image
-                            src={icons[weather.current.weather.icon]}
+                            src={icons[weather.current.weather[0].icon]}
                             alt="Current Weather"
                             width="260px"
                             height="260px"

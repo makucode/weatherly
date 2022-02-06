@@ -8,6 +8,7 @@ const fetchWeather = async (req, res) => {
                 lon: req.query.lon,
                 appid: process.env.WEATHER_API_KEY,
                 units: "metric",
+                exclude: "minutely",
             },
         });
 

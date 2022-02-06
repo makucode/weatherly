@@ -35,14 +35,14 @@ export const WeatherProvider = ({ children }) => {
             setWeatherError(null);
             setWeatherLoading(true);
             try {
-                /*                 const { data } = await axios.get("/api/weather", {
+                const { data } = await axios.get("/api/weather", {
                     params: {
                         lat,
                         lon,
                     },
-                }); */
+                });
 
-                const data = {
+                /* const data = {
                     bruh: "OOF",
                     current: {
                         temp: 4,
@@ -56,7 +56,7 @@ export const WeatherProvider = ({ children }) => {
                             icon: "10d",
                         },
                     },
-                };
+                }; */
 
                 setWeather({ ...data, fetchedOn: Date.now() });
             } catch (error) {
