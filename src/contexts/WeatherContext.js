@@ -1,6 +1,6 @@
 import { useState, createContext, useEffect, useContext } from "react";
 import axios from "axios";
-import { LocationContext } from "./locationContext";
+import { LocationContext } from "./LocationContext";
 
 export const WeatherContext = createContext();
 

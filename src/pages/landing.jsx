@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Credits from "../components/Home/Credits";
 import LocationPicker from "../components/Landing/LocationPicker";
-import { LocationContext } from "../contexts/locationContext";
+import { LocationContext } from "../contexts/LocationContext";
 import styles from "../styles/pages/Landing.module.scss";
 
 const Landing = () => {

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import ChevronRightIcon from "../icons/ChevronRightIcon";
 import styles from "../../styles/components/Landing/Picker.module.scss";
-import { LocationContext } from "../../contexts/locationContext";
+import { LocationContext } from "../../contexts/LocationContext";
 
 const Picker = ({ locations, setLocations }) => {
     const { setLocation } = useContext(LocationContext);

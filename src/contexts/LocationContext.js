@@ -11,6 +11,11 @@ export const LocationProvider = ({ children }) => {
         setLocation(location);
     };
 
+    const removeLocation = (location) => {
+        localStorage.removeItem("location");
+        setLocation(null);
+    };
+
     const router = useRouter();
 
     // Check if localStorage has Location
@@ -37,7 +42,7 @@ export const LocationProvider = ({ children }) => {
 
     return (
         <LocationContext.Provider
-            value={{ location, setLocation: saveLocation }}
+            value={{ location, setLocation: saveLocation, removeLocation }}
         >
             {children}
         </LocationContext.Provider>

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { fadeInScale } from "../../assets/animations.js";
+import { LocationContext } from "../../contexts/LocationContext.js";
 
 const GearIcon = () => {
     const [isHover, setIsHover] = useState(false);
+    const { removeLocation } = useContext(LocationContext);
 
     const animation = fadeInScale;
 
@@ -20,6 +22,7 @@ const GearIcon = () => {
                 viewBox="0 0 288 512"
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}
+                onClick={removeLocation}
             >
                 <path
                     fill="currentColor"

@@ -4,7 +4,7 @@ import Overview from "../components/Home/Overview";
 import Forecast from "../components/Home/Forecast";
 import Loader from "../components/Loader";
 import GearIcon from "../components/icons/GearIcon";
-import { LocationContext } from "../contexts/locationContext";
+import { LocationContext } from "../contexts/LocationContext";
 import { WeatherContext } from "../contexts/WeatherContext";
 import styles from "../styles/pages/Home.module.scss";
 

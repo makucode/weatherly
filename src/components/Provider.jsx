@@ -1,6 +1,6 @@
 import React from "react";
 import { DayTimeProvider } from "../contexts/DayTimeContext";
-import { LocationProvider } from "../contexts/locationContext";
+import { LocationProvider } from "../contexts/LocationContext";
 import { WeatherProvider } from "../contexts/WeatherContext";
 
 const Provider = ({ children }) => {

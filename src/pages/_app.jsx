@@ -8,7 +8,7 @@ import { DayTimeContext } from "../contexts/DayTimeContext";
 
 const Content = ({ children }) => {
     const router = useRouter();
-    const { dayTime, getBackground } = useContext(DayTimeContext);
+    const { getBackground } = useContext(DayTimeContext);
     const [background, setBackground] = useState(getBackground());
 
     useEffect(() => {
