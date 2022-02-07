@@ -6,7 +6,7 @@ import LocationPicker from "../components/Landing/LocationPicker";
 import { LocationContext } from "../contexts/locationContext";
 import styles from "../styles/pages/Landing.module.scss";
 
-const landing = () => {
+const Landing = () => {
     const { location } = useContext(LocationContext);
 
     const router = useRouter();
@@ -33,4 +33,4 @@ const landing = () => {
     );
 };
 
-export default landing;
+export default Landing;
