@@ -11,3 +11,23 @@
     background-color: $day-gradient-color;
     background: $day-gradient;
 }
+
+.HomeSettings {
+    position: fixed;
+    top: 1rem;
+    right: 10rem;
+
+    svg {
+        height: 30px;
+
+        opacity: 0.5;
+
+        cursor: pointer;
+
+        transition: $transNormal;
+    }
+
+    svg:hover {
+        opacity: 1;
+    }
+}

@@ -88,3 +88,16 @@ section {
     opacity: 1;
     transform: scale(1) translateY(0) translateX(0);
 }
+
+.IconMsgBox {
+    position: absolute;
+    width: max-content;
+
+    padding: 0.5rem 0.5rem;
+
+    border-radius: $radiusMain;
+
+    transform: translateX(-44%) translateY(4px);
+
+    background-color: #1a1a1abe;
+}

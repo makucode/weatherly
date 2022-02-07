@@ -3,7 +3,7 @@ import Head from "next/head";
 import Overview from "../components/Home/Overview";
 import Forecast from "../components/Home/Forecast";
 import Loader from "../components/Loader";
-import useOnScreen from "../hooks/useOnScreen";
+import GearIcon from "../components/icons/GearIcon";
 import { LocationContext } from "../contexts/locationContext";
 import { WeatherContext } from "../contexts/WeatherContext";
 import styles from "../styles/pages/Home.module.scss";
@@ -26,6 +26,10 @@ const Home = () => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+
+            <header className={styles.HomeSettings}>
+                <GearIcon />
+            </header>
 
             <main className={"Main " + styles.HomeMain}>
                 {location && (!weatherLoading || weather) ? (
