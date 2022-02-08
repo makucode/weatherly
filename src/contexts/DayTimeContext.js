@@ -17,7 +17,7 @@ export const DayTimeProvider = ({ children }) => {
         else return "evening";
     };
 
-    const [dayTime, setDayTime] = useState(getDayTime());
+    const [dayTime, setDayTime] = useState();
 
     useEffect(() => {
         setDayTime(getDayTime());

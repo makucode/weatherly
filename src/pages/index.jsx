@@ -29,6 +29,9 @@ const Home = () => {
 
             <header className={styles.HomeSettings}>
                 <GearIcon />
+                <span className={styles.Location}>
+                    {location && location.formatted}
+                </span>
             </header>
 
             <main className={"Main " + styles.HomeMain}>

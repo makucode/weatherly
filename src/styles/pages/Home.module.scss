@@ -15,10 +15,14 @@
 .HomeSettings {
     position: fixed;
     top: 1rem;
-    right: 10rem;
+    left: 10rem;
+
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
 
     svg {
-        height: 30px;
+        height: 22px;
 
         opacity: 0.5;
 
@@ -30,4 +34,9 @@
     svg:hover {
         opacity: 1;
     }
+}
+
+.Location {
+    transform: translateY(-3px);
+    opacity: 0.75;
 }
