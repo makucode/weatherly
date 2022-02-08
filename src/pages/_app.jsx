@@ -3,13 +3,16 @@ import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 import Provider from "../components/Provider";
 import { fadeInBlur } from "../assets/animations";
-import "../styles/style.scss";
 import { DayTimeContext } from "../contexts/DayTimeContext";
+import useKeepStyles from "../hooks/useKeepStyles";
+import "../styles/style.scss";
 
 const Content = ({ children }) => {
     const router = useRouter();
     const { getBackground } = useContext(DayTimeContext);
     const [background, setBackground] = useState(getBackground());
+
+    useKeepStyles();
 
     useEffect(() => {
         setBackground(getBackground());

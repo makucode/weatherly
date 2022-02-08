@@ -97,6 +97,7 @@ const LocationPicker = () => {
                                                 type="text"
                                                 placeholder="Enter your nearest city"
                                                 value={location}
+                                                required
                                                 onChange={(e) =>
                                                     setLocation(e.target.value)
                                                 }
