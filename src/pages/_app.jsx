@@ -22,7 +22,7 @@ const Content = ({ children }) => {
             <AnimatePresence exitBeforeEnter>
                 <motion.div
                     key={router.asPath}
-                    transition={{ duration: 0.25 }}
+                    transition={{ duration: 0.25, delay: 0.25 }}
                     initial="pageInitial"
                     animate="pageAnimate"
                     exit="pageExit"
