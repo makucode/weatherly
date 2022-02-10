@@ -19,7 +19,17 @@
 
     display: flex;
     align-items: center;
-    column-gap: 1rem;
+
+    div:first-child {
+        padding: 0.75rem;
+        cursor: pointer;
+    }
+
+    div:first-child:hover {
+        svg {
+            opacity: 1;
+        }
+    }
 
     svg {
         height: 22px;
@@ -38,5 +48,5 @@
 
 .Location {
     transform: translateY(-3px);
-    opacity: 0.75;
+    opacity: 0.5;
 }

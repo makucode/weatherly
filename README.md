@@ -2,7 +2,7 @@
 
 [weatherly](https://maku-weather.herokuapp.com/)
 
-weatherly is a small weather forecast app I built for fun. The icons I used are from [basmilius weather-icons](https://github.com/basmilius/weather-icons) and [Font Awesome](https://fontawesome.com/), the third party APIs for geocoding and weather are [OpenWeather](https://openweathermap.org/) and [OpenCage](https://opencagedata.com/).
+weatherly is a small weather forecast app I built for fun. The icons I used are from [basmilius weather-icons](https://github.com/basmilius/weather-icons) and [Font Awesome](https://fontawesome.com/), the third party APIs for weather and geocoding are [OpenWeather](https://openweathermap.org/) and [OpenCage](https://opencagedata.com/).
 
 **Contact: [makucode@gmail.com](makucode@gmail.com)**
 

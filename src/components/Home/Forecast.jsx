@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import Image from "next/image";
+import { useParallax } from "react-scroll-parallax";
 import WindIcon from "../icons/WindIcon";
 import { WeatherContext } from "../../contexts/WeatherContext";
 import icons from "../../assets/icons";
@@ -7,6 +8,10 @@ import styles from "../../styles/components/Home/Forecast.module.scss";
 
 const Forecast = () => {
     const { weather, unit } = useContext(WeatherContext);
+
+    const forecastParallax = useParallax({
+        speed: 5,
+    });
 
     const getDate = (dt) => {
         return new Date(dt * 1000).toLocaleDateString("en", {
@@ -17,7 +22,7 @@ const Forecast = () => {
     return (
         <section className={styles.Forecast}>
             {}
-            <div className={styles.ForecastWeather}>
+            <div className={styles.ForecastWeather} ref={forecastParallax.ref}>
                 {weather &&
                     weather.daily.slice(0, 7).map((day, idx) => (
                         <div

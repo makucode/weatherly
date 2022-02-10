@@ -11,7 +11,7 @@
     left: 50%;
     transform: translateX(-50%);
 
-    color: $mid;
+    color: #e5e5e5c5;
     font-size: 1.125rem;
 
     a {
@@ -21,13 +21,14 @@
     }
 
     svg {
-        fill: $mid;
+        fill: $light;
+        opacity: 0.75;
 
         transition: $transNormal;
     }
 
     svg:hover {
-        fill: $light;
+        opacity: 1;
     }
 }
 
@@ -66,13 +67,31 @@
     transition-duration: 0.2s;
 }
 
-.CreditsMakucode:hover {
+.CreditsMakucode:hover::after {
+    height: 1.1rem;
+    background-color: #e5e5e5;
+}
+
+.HoverMorning:hover {
+    span {
+        color: $morning-gradient-color;
+    }
+}
+
+.HoverDay:hover {
     span {
         color: $day-gradient-color;
     }
 }
 
-.CreditsMakucode:hover::after {
-    height: 1.1rem;
-    background-color: #e5e5e5;
+.HoverEvening:hover {
+    span {
+        color: $evening-gradient-color;
+    }
+}
+
+.HoverNight:hover {
+    span {
+        color: $night-gradient-color;
+    }
 }

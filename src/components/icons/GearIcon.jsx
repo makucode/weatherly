@@ -10,7 +10,11 @@ const GearIcon = () => {
     const animation = fadeInScale;
 
     return (
-        <div>
+        <div
+            onMouseEnter={() => setIsHover(true)}
+            onMouseLeave={() => setIsHover(false)}
+            onClick={removeLocation}
+        >
             <svg
                 aria-hidden="true"
                 focusable="false"
@@ -20,9 +24,6 @@ const GearIcon = () => {
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 288 512"
-                onMouseEnter={() => setIsHover(true)}
-                onMouseLeave={() => setIsHover(false)}
-                onClick={removeLocation}
             >
                 <path
                     fill="currentColor"

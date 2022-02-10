@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import { useParallax } from "react-scroll-parallax";
 import WindIcon from "../icons/WindIcon";
 import icons from "../../assets/icons";
 import { fadeIn } from "../../assets/animations";
@@ -13,10 +14,18 @@ const Overview = () => {
 
     const tempAnimation = fadeIn;
 
+    const tempParallax = useParallax({
+        speed: -10,
+    });
+
+    const iconParallax = useParallax({
+        speed: -20,
+    });
+
     return (
         <section className={styles.Overview}>
             <div className={styles.Weather}>
-                <div className={styles.WeatherInfo}>
+                <div className={styles.WeatherInfo} ref={tempParallax.ref}>
                     <div className={styles.WeatherTemp}>
                         <AnimatePresence exitBeforeEnter>
                             <motion.div
@@ -58,15 +67,17 @@ const Overview = () => {
                         </div>
                     </div>
                 </div>
-                <div className={styles.WeatherIcon}>
-                    {weather && (
-                        <Image
-                            src={icons[weather.current.weather[0].icon]}
-                            alt="Current Weather"
-                            width="260px"
-                            height="260px"
-                        />
-                    )}
+                <div ref={iconParallax.ref}>
+                    <div className={styles.WeatherIcon}>
+                        {weather && (
+                            <Image
+                                src={icons[weather.current.weather[0].icon]}
+                                alt="Current Weather"
+                                width="260px"
+                                height="260px"
+                            />
+                        )}
+                    </div>
                 </div>
             </div>
         </section>
