@@ -19,7 +19,7 @@
 
 .ForecastWeather {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     column-gap: 2rem;
 
@@ -85,4 +85,135 @@
 .ForecastHide {
     opacity: 0;
     transition: all ease-in-out 0.5s ease-in-out;
+}
+
+@media only screen and (max-width: $br-xl) {
+    .ForecastDate {
+        transform: translateY(10px);
+    }
+
+    .ForecastWeather {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        column-gap: 2rem;
+    }
+
+    .ForecastIcon {
+        width: 40%;
+
+        img {
+            width: 10vw;
+        }
+    }
+
+    .ForecastItemInfo,
+    .ForecastItemTemp {
+        font-size: 1rem;
+
+        transform: translateY(-10px);
+
+        h3 {
+            font-size: 2rem;
+        }
+
+        h4 {
+            font-size: 1.5rem;
+        }
+
+        svg {
+            position: absolute;
+            height: 20px;
+
+            path {
+                stroke-width: 4;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $br-m), screen and (max-height: 480px) {
+    .Forecast {
+        padding: 2.5rem;
+    }
+
+    .ForecastDate {
+        font-size: 1rem;
+        transform: translateY(0);
+    }
+
+    .ForecastWeather {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ForecastWeatherItem {
+        display: grid;
+        grid-template-columns: 1fr 0.5fr 1fr 1fr;
+    }
+
+    .ForecastItemInfo,
+    .ForecastItemTemp {
+        transform: translateY(0);
+    }
+
+    .ForecastItemInfo {
+        justify-content: flex-end;
+
+        padding-right: 20px;
+    }
+
+    .ForecastItemTemp {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 0.5rem;
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        h4 {
+            font-size: 1rem;
+        }
+    }
+
+    .ForecastIcon {
+        width: 60px;
+    }
+}
+
+@media only screen and (max-height: 480px) {
+    .Forecast {
+        margin-top: 40vh;
+    }
+
+    .ForecastIcon {
+        width: 40px;
+    }
+}
+
+@media only screen and (max-width: $br-s) {
+    .Forecast {
+        padding: 1rem;
+    }
+
+    .ForecastItemTemp {
+        h3 {
+            font-size: 1rem;
+        }
+
+        h4 {
+            font-size: 0.75rem;
+        }
+    }
+
+    .ForecastItemInfo {
+        font-size: 0.75rem;
+    }
+
+    .ForecastIcon {
+        width: 50px;
+    }
 }

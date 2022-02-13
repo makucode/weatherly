@@ -25,6 +25,18 @@ const Overview = () => {
     return (
         <section className={styles.Overview}>
             <div className={styles.Weather}>
+                <div ref={iconParallax.ref}>
+                    <div className={styles.WeatherIcon}>
+                        {weather && (
+                            <Image
+                                src={icons[weather.current.weather[0].icon]}
+                                alt="Current Weather"
+                                width="400px"
+                                height="400px"
+                            />
+                        )}
+                    </div>
+                </div>
                 <div className={styles.WeatherInfo} ref={tempParallax.ref}>
                     <div className={styles.WeatherTemp}>
                         <AnimatePresence exitBeforeEnter>
@@ -65,18 +77,6 @@ const Overview = () => {
                                 />
                             </span>
                         </div>
-                    </div>
-                </div>
-                <div ref={iconParallax.ref}>
-                    <div className={styles.WeatherIcon}>
-                        {weather && (
-                            <Image
-                                src={icons[weather.current.weather[0].icon]}
-                                alt="Current Weather"
-                                width="260px"
-                                height="260px"
-                            />
-                        )}
                     </div>
                 </div>
             </div>

@@ -24,7 +24,7 @@ const Forecast = () => {
             {}
             <div className={styles.ForecastWeather} ref={forecastParallax.ref}>
                 {weather &&
-                    weather.daily.slice(0, 7).map((day, idx) => (
+                    weather.daily.slice(0, 6).map((day, idx) => (
                         <div
                             key={day.sunrise}
                             className={

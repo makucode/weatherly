@@ -54,5 +54,27 @@
 .WeatherIcon {
     position: absolute;
 
-    transform: translate(180px, -420px);
+    transform: translate(170px, -200px);
+
+    img {
+        z-index: -5;
+    }
+}
+
+@media only screen and (max-width: $br-s), screen and (max-height: 400px) {
+    .Overview {
+        h1 {
+            font-size: 8rem;
+        }
+    }
+
+    .WeatherSubRow {
+        font-size: 1.5rem;
+    }
+
+    .WeatherIcon {
+        position: absolute;
+
+        transform: translate(100px, -140px);
+    }
 }

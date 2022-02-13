@@ -95,3 +95,15 @@
         color: $night-gradient-color;
     }
 }
+
+@media screen and (max-height: 480px) {
+    .Credits {
+        bottom: 1rem;
+    }
+}
+
+@media screen and (max-height: 340px) {
+    .Credits {
+        bottom: 0.5rem;
+    }
+}
