@@ -4,10 +4,16 @@ import ChevronRightIcon from "../icons/ChevronRightIcon";
 import styles from "../../styles/components/Landing/Picker.module.scss";
 import { LocationContext } from "../../contexts/LocationContext";
 
-const Picker = ({ locations, setLocations }) => {
+const Picker = ({ locations, setLocations, setLoading }) => {
     const { setLocation } = useContext(LocationContext);
 
     const router = useRouter();
+
+    const handlePick = () => {
+        setLoading(true);
+        setLocation(location);
+        router.push("/");
+    };
 
     return (
         <div className={styles.Picker}>
@@ -29,10 +35,7 @@ const Picker = ({ locations, setLocations }) => {
                                     ? styles.NoBorder
                                     : "")
                             }
-                            onClick={() => {
-                                setLocation(location);
-                                router.push("/");
-                            }}
+                            onClick={handlePick}
                         >
                             <div>
                                 <span className={styles.PickerCity}>

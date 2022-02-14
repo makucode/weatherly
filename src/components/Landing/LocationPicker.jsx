@@ -67,6 +67,7 @@ const LocationPicker = () => {
                                 <Picker
                                     locations={locations}
                                     setLocations={setLocations}
+                                    setLoading={setLoading}
                                 />
                             ) : (
                                 <form
