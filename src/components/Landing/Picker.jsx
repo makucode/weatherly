@@ -10,8 +10,8 @@ const Picker = ({ locations, setLocations, setLoading }) => {
     const router = useRouter();
 
     const handlePick = () => {
-        setLoading(true);
         setLocation(location);
+        setLoading(true);
         router.push("/");
     };
 
