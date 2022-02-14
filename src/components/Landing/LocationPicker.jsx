@@ -10,7 +10,7 @@ import { fadeIn, fadeInScale } from "../../assets/animations";
 import styles from "../../styles/components/Landing/LocationPicker.module.scss";
 
 const LocationPicker = () => {
-    const [location, setLocation] = useState("");
+    const [currentLocation, setCurrentLocation] = useState("");
     const [locations, setLocations] = useState("");
     const [loading, setLoading] = useState(false);
 
@@ -22,7 +22,7 @@ const LocationPicker = () => {
         setLoading(true);
         try {
             const { data } = await axios.get("/api/coordinates", {
-                params: { city: location },
+                params: { city: currentLocation },
             });
 
             setLocations(data.results);
@@ -96,10 +96,12 @@ const LocationPicker = () => {
                                                 name="location"
                                                 type="text"
                                                 placeholder="Enter your nearest city"
-                                                value={location}
+                                                value={currentLocation}
                                                 required
                                                 onChange={(e) =>
-                                                    setLocation(e.target.value)
+                                                    setCurrentLocation(
+                                                        e.target.value
+                                                    )
                                                 }
                                             />
                                             <button type="submit">

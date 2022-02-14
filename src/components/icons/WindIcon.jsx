@@ -18,7 +18,7 @@ const WindIcon = ({ windSpeed }) => {
             >
                 <animate
                     attributeName="stroke-dashoffset"
-                    dur={Math.max(Math.abs(12 - windSpeed + 3), 2) + "s"}
+                    dur={Math.max(Math.abs(12 - windSpeed + 7), 2) + "s"}
                     repeatCount="indefinite"
                     values="-57; 57"
                 />
@@ -35,7 +35,7 @@ const WindIcon = ({ windSpeed }) => {
                 <animate
                     attributeName="stroke-dashoffset"
                     begin="-1.5s"
-                    dur={Math.max(Math.abs(12 - windSpeed + 3), 2) + "s"}
+                    dur={Math.max(Math.abs(12 - windSpeed + 7), 2) + "s"}
                     repeatCount="indefinite"
                     values="-39; 39"
                 />
