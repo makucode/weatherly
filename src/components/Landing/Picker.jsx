@@ -9,9 +9,9 @@ const Picker = ({ locations, setLocations, setLoading }) => {
 
     const router = useRouter();
 
-    const handlePick = () => {
-        setLocation(location);
+    const handlePick = (newLocation) => {
         setLoading(true);
+        setLocation(newLocation);
         router.push("/");
     };
 
@@ -35,7 +35,7 @@ const Picker = ({ locations, setLocations, setLoading }) => {
                                     ? styles.NoBorder
                                     : "")
                             }
-                            onClick={handlePick}
+                            onClick={() => handlePick(location)}
                         >
                             <div>
                                 <span className={styles.PickerCity}>
