@@ -9,6 +9,7 @@ export default function useOnScreen(ref, rootMargin = "0px") {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 setIntersecting(entry.isIntersecting);
+                console.log(isIntersecting);
             },
             {
                 rootMargin,
@@ -19,7 +20,7 @@ export default function useOnScreen(ref, rootMargin = "0px") {
         return () => {
             observer.disconnect();
         };
-    }, [ref]); //CHECK!
+    }, [ref]);
 
     return isIntersecting;
 }
