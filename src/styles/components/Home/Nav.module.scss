@@ -3,36 +3,14 @@
 .Nav {
     position: fixed;
 
-    right: 10rem;
-    top: 50vh;
+    right: 50vw;
+    bottom: 2rem;
 
-    transform: translateY(-50%);
+    transform: translateX(-50%);
 
-    ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
+    svg {
+        width: 26px;
 
-        row-gap: 0.25rem;
-    }
-
-    li {
-        display: flex;
-        align-items: center;
-        column-gap: 1rem;
-
-        font-size: 1.25rem;
-    }
-
-    li::after {
-        display: block;
-        content: "";
-
-        width: 16px;
-        height: 16px;
-
-        background-color: $light;
-
-        border-radius: 100px;
+        fill: $light;
     }
 }
